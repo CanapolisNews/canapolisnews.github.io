@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Feedback - Canápolis Notícias</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #6b9742 0%, #547a38 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 70px;
+            width: auto;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        /* Menu para desktop */
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Botão do menu hamburguer (inicialmente oculto) */
+        .hamburger-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        
+        .hamburger-btn span {
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        
+        /* Menu mobile (inicialmente oculto) */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background-color: #6b9742;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .mobile-menu.active {
+            display: flex;
+        }
+        
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+        
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+        
+        .mobile-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .page-title {
+            text-align: center;
+            margin: 30px 0;
+            color: #6b9742;
+            font-size: 32px;
+        }
+        
+        .feedback-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 900px) {
+            .feedback-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .form-container, .admin-container {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .form-title {
+            color: #6b9742;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: #6b9742;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(107, 151, 66, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .rating {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        
+        .rating input {
+            display: none;
+        }
+        
+        .rating label {
+            font-size: 28px;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .rating input:checked ~ label {
+            color: #ddd;
+        }
+        
+        .rating label:hover,
+        .rating label:hover ~ label,
+        .rating input:checked + label,
+        .rating input:checked ~ label {
+            color: #ffc107;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #6b9742;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #547a38;
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .admin-panel {
+            margin-top: 30px;
+        }
+        
+        .filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 8px 15px;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .filter-btn.active {
+            background-color: #6b9742;
+            color: white;
+        }
+        
+        .feedback-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .feedback-item {
+            background-color: #f9f9f9;
+            border-left: 4px solid #6b9742;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+        
+        .feedback-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .feedback-name {
+            font-weight: 600;
+            color: #6b9742;
+        }
+        
+        .feedback-date {
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .feedback-rating {
+            color: #ffc107;
+            margin-bottom: 8px;
+        }
+        
+        .feedback-message {
+            color: #555;
+        }
+        
+        .empty-feedback {
+            text-align: center;
+            padding: 30px;
+            color: #888;
+            font-style: italic;
+        }
+        
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        footer {
+            background-color: #6b9742;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        .copyright {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .copyright a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        
+        /* Media Queries para responsividade */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hamburger-btn {
+                display: flex;
+            }
+            
+            .header-content {
+                flex-direction: row;
+                gap: 15px;
+            }
+            
+            .page-title {
+                font-size: 28px;
+            }
+            
+            .logo h1 {
+                font-size: 20px;
+            }
+            
+            .logo img {
+                height: 50px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .form-container, .admin-container {
+                padding: 15px;
+            }
+            
+            .filters {
+                flex-direction: column;
+            }
+            
+            .filter-btn {
+                width: 100%;
+            }
+            
+            .logo h1 {
+                font-size: 18px;
+            }
+            
+            .logo img {
+                height: 40px;
+            }
+        }
+        
+        .feedback-intro {
+    background: linear-gradient(to right, #f8fbf8, #f1f7ec);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    max-width: 800px;
+    width: 100%;
+    border-left: 4px solid #6b9742;
+    position: relative;
+    overflow: hidden;
+    margin: 20px auto;
+}
+
+.feedback-intro:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #6b9742, #8bb563);
+}
+
+.feedback-intro p {
+    color: #445737;
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.7;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.feedback-intro p strong {
+    color: #6b9742;
+    font-weight: 600;
+}
+
+.feedback-intro .icon-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.feedback-intro .icon-container svg {
+    width: 48px;
+    height: 48px;
+    fill: #6b9742;
+}
+
+.feedback-intro .highlight {
+    background: linear-gradient(120deg, rgba(107, 151, 66, 0.1) 0%, rgba(107, 151, 66, 0.05) 100%);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(107, 151, 66, 0.15);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .feedback-intro {
+        padding: 20px;
+    }
+    
+    .feedback-intro p {
+        font-size: 17px;
+    }
+    
+    .feedback-intro .icon-container svg {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+@media (max-width: 480px) {
+    .feedback-intro {
+        padding: 18px 15px;
+    }
+    
+    .feedback-intro p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    .feedback-intro .icon-container svg {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .feedback-intro .highlight {
+        padding: 15px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="Img/LogoCanapolisNewsBranca.webp" alt="Logo Canápolis Notícias">
+                <h1>Canápolis Notícias</h1>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="contato.html">Contato</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="politica-privacidade.html">Política de Privacidade</a>
+            </nav>
+            
+            <button class="hamburger-btn" id="hamburgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <nav class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Início</a>
+            <a href="contato.html">Contato</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="politica-privacidade.html">Política de Privacidade</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2 class="page-title">Sistema de Feedback - Canapolis News</h2>
+
+        <div class="feedback-intro">
+    <div class="icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+        </svg>
+    </div>
+    <div class="highlight">
+        <p>Esse Sistema de Feedback foi feito para você expressar sua opinião sobre o nosso site e Canápolis News em geral. Sua contribuição é muito importante para continuarmos melhorando!</p>
+    </div>
+</div>
+
+        <div class="feedback-container">
+            <div class="form-container">
+                <h3 class="form-title">Envie seu Feedback</h3>
+                <form id="feedbackForm">
+                    <div class="form-group">
+                        <label for="name">Nome:</label>
+                        <input type="text" id="name" class="form-control" placeholder="Seu nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" class="form-control" placeholder="seu@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Avaliação:</label>
+                        <div class="rating">
+                            <input type="radio" id="star5" name="rating" value="5">
+                            <label for="star5">★</label>
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4">★</label>
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3">★</label>
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2">★</label>
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1">★</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensagem:</label>
+                        <textarea id="message" class="form-control" placeholder="Digite sua opinião, sugestão ou crítica..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-block">Enviar Feedback</button>
+                </form>
+                
+                <div id="successMessage" class="success-message">
+                    Obrigado pelo seu feedback! Sua opinião é muito importante para nós.
+                </div>
+            </div>
+            
+            <div class="admin-container">
+                <h3 class="form-title">Visualização de Feedbacks</h3>
+                
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="5">5 Estrelas</button>
+                    <button class="filter-btn" data-filter="4">4 Estrelas</button>
+                    <button class="filter-btn" data-filter="3">3 Estrelas</button>
+                    <button class="filter-btn" data-filter="2">2 Estrelas</button>
+                    <button class="filter-btn" data-filter="1">1 Estrela</button>
+                </div>
+                
+                <div class="feedback-list" id="feedbackList">
+                    <div class="empty-feedback">
+                        Nenhum feedback recebido ainda.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 Canápolis Notícias. Todos os direitos reservados.</p>
+                <a href="privacidade.html" style="color: #ffffff; text-decoration: underline;">Política de Privacidade</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Hamburguer
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (hamburgerBtn && mobileMenu) {
+                hamburgerBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('active');
+                    
+                    // Animação do botão hamburguer para X
+                    const spans = hamburgerBtn.querySelectorAll('span');
+                    if (mobileMenu.classList.contains('active')) {
+                        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                        spans[1].style.opacity = '0';
+                        spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                    } else {
+                        spans[0].style.transform = 'none';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'none';
+                    }
+                });
+                
+                // Fechar o menu ao clicar em um link
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                        
+                        // Reverter animação do botão hamburguer
+                        const spans = hamburgerBtn.querySelectorAll('span');
+                        spans[0].style.transform = 'none';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'none';
+                    });
+                });
+                
+                // Fechar o menu ao clicar fora dele
+                document.addEventListener('click', function(event) {
+                    if (!event.target.closest('.header-content') && mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        
+                        // Reverter animação do botão hamburguer
+                        const spans = hamburgerBtn.querySelectorAll('span');
+                        spans[0].style.transform = 'none';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'none';
+                    }
+                });
+            }
+            
+            // Sistema de Feedback
+            // Carregar feedbacks do localStorage
+            loadFeedbacks();
+            
+            // Manipular envio do formulário
+            const feedbackForm = document.getElementById('feedbackForm');
+            if (feedbackForm) {
+                feedbackForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const rating = document.querySelector('input[name="rating"]:checked')?.value || 0;
+                    const message = document.getElementById('message').value;
+                    
+                    if (name && email && rating > 0 && message) {
+                        // Criar objeto de feedback
+                        const feedback = {
+                            id: Date.now(),
+                            name,
+                            email,
+                            rating: parseInt(rating),
+                            message,
+                            date: new Date().toLocaleDateString('pt-BR')
+                        };
+                        
+                        // Salvar no localStorage
+                        saveFeedback(feedback);
+                        
+                        // Limpar formulário
+                        feedbackForm.reset();
+                        
+                        // Mostrar mensagem de sucesso
+                        const successMessage = document.getElementById('successMessage');
+                        successMessage.style.display = 'block';
+                        
+                        // Ocultar mensagem após 5 segundos
+                        setTimeout(() => {
+                            successMessage.style.display = 'none';
+                        }, 5000);
+                        
+                        // Recarregar a lista de feedbacks
+                        loadFeedbacks();
+                    }
+                });
+            }
+            
+            // Adicionar filtros
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remover classe active de todos os botões
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Adicionar classe active ao botão clicado
+                    this.classList.add('active');
+                    
+                    // Filtrar feedbacks
+                    const filter = this.getAttribute('data-filter');
+                    loadFeedbacks(filter);
+                });
+            });
+        });
+        
+        // Função para salvar feedback no localStorage
+        function saveFeedback(feedback) {
+            let feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
+            feedbacks.push(feedback);
+            localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
+        }
+        
+        // Função para carregar feedbacks do localStorage
+        function loadFeedbacks(filter = 'all') {
+            const feedbackList = document.getElementById('feedbackList');
+            if (!feedbackList) return;
+            
+            let feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
+            
+            // Aplicar filtro se necessário
+            if (filter !== 'all') {
+                feedbacks = feedbacks.filter(fb => fb.rating === parseInt(filter));
+            }
+            
+            // Limpar lista
+            feedbackList.innerHTML = '';
+            
+            // Verificar se há feedbacks
+            if (feedbacks.length === 0) {
+                feedbackList.innerHTML = '<div class="empty-feedback">Nenhum feedback recebido ainda.</div>';
+                return;
+            }
+            
+            // Adicionar feedbacks à lista
+            feedbacks.forEach(feedback => {
+                const stars = '★'.repeat(feedback.rating) + '☆'.repeat(5 - feedback.rating);
+                
+                const feedbackItem = document.createElement('div');
+                feedbackItem.className = 'feedback-item';
+                feedbackItem.innerHTML = `
+                    <div class="feedback-header">
+                        <span class="feedback-name">${feedback.name}</span>
+                        <span class="feedback-date">${feedback.date}</span>
+                    </div>
+                    <div class="feedback-rating">${stars}</div>
+                    <div class="feedback-message">${feedback.message}</div>
+                `;
+                
+                feedbackList.appendChild(feedbackItem);
+            });
+        }
+    </script>
+</body>
+</html>

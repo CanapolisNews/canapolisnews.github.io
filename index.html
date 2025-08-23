@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4558696530170455"
+     crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Canis News</title>
+  <meta name="description" content="Fique por dentro das principais notícias de Canápolis/BA, Brasil e Mundo no Portal Canis News.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ========== ESTILOS GERAIS ========== */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+        background-color: #f9f9f9;
+        color: #333;
+        line-height: 1.6;
+    }
+    
+    /* ========== NAVBAR ========== */
+    .navbar {
+      background-color: #ffffff;
+      color: #6b9742;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-bottom: 2px solid #6b9742;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo {
+      height: 60px;
+      width: auto;
+      display: block;
+    }
+
+    .social-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .social-label {
+      font-size: 0.9rem;
+      color: #6b9742;
+      font-weight: bold;
+      padding-top: 10px;
+    }
+
+    .social-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .social-icons a {
+      color: #6b9742;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #000000;
+      transform: translateX(5px);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #6b9742;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s;
+      padding: 5px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: #000000;
+      border-bottom: 2px solid #6b9742;
+    }
+
+    /* ========== MENU MOBILE ========== */
+    .menu-toggle {
+      display: none;
+    }
+
+    .menu-button {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: #6b9742;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        padding: 10px;
+      }
+      .logo-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .nav-links {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .menu-button {
+        display: block;
+        order: 2;
+        margin-left: auto;
+        color: #6b9742 !important;
+      }
+
+      .nav-container {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        flex-direction: column;
+        transition: max-height 0.3s ease;
+        background-color: #ffffff;
+      }
+
+      .menu-toggle:checked ~ .nav-container {
+        max-height: 300px;
+        padding-top: 15px;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        padding: 20px 0;
+      }
+    }
+
+    /* ========== BANNER PRINCIPAL ========== */
+    .Canapolisnews {
+      color: #ffffff;
+      background-color: #6b9742;
+      padding: 30px 20px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .Canapolisnews h1 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    .Canapolisnews p {
+      font-size: 1.1rem;
+      margin-bottom: 0;
+    }
+
+    /* ========== SEÇÃO DE NOTÍCIAS ========== */
+    .news-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .section-title {
+        text-align: center;
+        color: #6b9742;
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+        position: relative;
+        padding-bottom: 15px;
+    }
+    
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background-color: #6b9742;
+    }
+    
+    .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+        margin-top: 20px;
+    }
+    
+    .news-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .news-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .news-image {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        display: block;
+    }
+    
+    .news-content {
+        padding: 20px;
+    }
+    
+    .news-date {
+        color: #6b9742;
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+        display: block;
+    }
+    
+    .news-title {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+        color: #333;
+        line-height: 1.3;
+    }
+    
+    .news-subtitle {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 15px;
+        line-height: 1.5;
+    }
+    
+    .news-description {
+        color: #555;
+        margin-bottom: 20px;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+    
+    .news-source {
+        font-style: italic;
+        color: #777;
+        font-size: 0.9rem;
+        border-top: 1px solid #eee;
+        padding-top: 15px;
+        margin-top: 15px;
+    }
+    
+    .read-more {
+        display: inline-block;
+        background-color: #6b9742;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s;
+        margin-top: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .read-more:hover {
+        background-color: #5a7e37;
+    }
+    
+    .category-filter {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+    }
+    
+    .category-btn {
+        padding: 8px 20px;
+        background-color: #f0f0f0;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+    
+    .category-btn:hover, .category-btn.active {
+        background-color: #6b9742;
+        color: white;
+    }
+    
+    /* ========== RODAPÉ ========== */
+    .footer-credits {
+        text-align: center;
+        padding: 30px 20px;
+        background-color: #f8f9fa;
+        border-top: 2px solid #e9ecef;
+        margin-top: 50px;
+    }
+
+    .footer-credits h3 {
+        margin-bottom: 10px;
+        color: #6b9742;
+        font-size: 1.5rem;
+    }
+
+    .footer-credits p {
+        margin-bottom: 15px;
+        line-height: 1.5;
+        color: #555;
+    }
+
+    .social-links {
+        margin: 15px 0;
+    }
+
+    .social-links a {
+        display: inline-block;
+        margin: 0 10px;
+        width: 40px;
+        height: 40px;
+        background-color: #6b9742;
+        color: white;
+        border-radius: 50%;
+        line-height: 40px;
+        text-decoration: none;
+        transition: background 0.3s;
+    }
+
+    .social-links a:hover {
+        background-color: #5a7e37;
+    }
+
+    .cta {
+        font-size: 0.95rem;
+        margin-top: 15px;
+        color: #555;
+    }
+
+    .copyright {
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px solid #ddd;
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+    /* ========== HORÁRIO RELATIVO ========== */
+    .news-time-ago {
+        display: inline-block;
+        background: rgba(107, 151, 66, 0.15);
+        color: #6b9742;
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-left: 10px;
+        border: 1px solid rgba(107, 151, 66, 0.3);
+    }
+
+    .news-time-ago::before {
+        content: '⏰ ';
+        margin-right: 4px;
+    }
+
+    /* Diferentes cores para diferentes tempos */
+    .news-time-ago.recent { /* Menos de 1h */
+        background: rgba(76, 175, 80, 0.15);
+        color: #4caf50;
+        border-color: rgba(76, 175, 80, 0.3);
+    }
+
+    .news-time-ago.today { /* Hoje */
+        background: rgba(107, 151, 66, 0.15);
+        color: #6b9742;
+        border-color: rgba(107, 151, 66, 0.3);
+    }
+
+    .news-time-ago.older { /* Mais de 1 dia */
+        background: rgba(158, 158, 158, 0.15);
+        color: #757575;
+        border-color: rgba(158, 158, 158, 0.3);
+    }
+
+    /* Na lista de notícias */
+    .news-card .news-time-ago {
+        margin: 5px 0;
+        display: inline-block;
+    }
+
+    /* ========== RESPONSIVIDADE ========== */
+    @media (max-width: 900px) {
+        .news-grid {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .section-title {
+            font-size: 1.8rem;
+        }
+        
+        .news-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .category-filter {
+            gap: 10px;
+        }
+        
+        .category-btn {
+            padding: 6px 15px;
+            font-size: 0.8rem;
+        }
+        
+        .Canapolisnews h1 {
+            font-size: 1.8rem;
+        }
+        
+        .Canapolisnews p {
+            font-size: 1rem;
+        }
+        
+        .news-time-ago {
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            margin-left: 5px;
+        }
+    }
+
+    /* ========== BOTÃO VOLTAR AO TOPO ========== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(107, 151, 66, 0.85); /* #6b9742 com transparência */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(107, 151, 66, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background-color: rgba(107, 151, 66, 1); /* Verde sólido no hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(107, 151, 66, 0.4);
+        }
+
+        .back-to-top:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 10px rgba(107, 151, 66, 0.3);
+        }
+
+        /* Tooltip (notificação) */
+        .back-to-top::before {
+            content: 'Clique e volte para o topo';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            background-color: #333;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .back-to-top::after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 2px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top:hover::before,
+        .back-to-top:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .back-to-top {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.3rem;
+            }
+            
+            .back-to-top::before {
+                font-size: 0.7rem;
+                padding: 6px 10px;
+                white-space: normal;
+                width: 120px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 15px;
+                right: 15px;
+                font-size: 1.2rem;
+            }
+        }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo-container">
+      <img src="Img/LogoCanapolisNews.webp" alt="Logo do Portal Canis News" class="logo" onerror="this.src='https://placehold.co/200x60/6b9742/white?text=Canápolis+Notícias'">
+      <div class="social-wrapper">
+        <span class="social-label">Envie-nos uma Notícia</span>
+        <div class="social-icons">
+          <a href="https://instagram.com/canapolisnews" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="mailto:canapolisnews@gmail.com?subject=Envio de Notícia"><i class="fas fa-envelope"></i> E-mail</a>
+        </div>
+      </div>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-button">
+      <i class="fas fa-bars"></i>
+    </label>
+
+    <div class="nav-container">
+      <nav class="nav-links">
+        <a href="sobre.html">Sobre</a>
+        <a href="feedback.html">Faça seu Feedback</a>
+        <a href="contato.html">Contato</a>
+        <a href="privacidade.html">Politica de Privacidade</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="Canapolisnews">
+    <h1>Seja bem-vindo(a) ao Canápolis Notícias!</h1>
+    <p>
+      <i class="fas fa-newspaper"></i> Fique por dentro das 
+      <i class="fas fa-map-marker-alt"></i> Notícias principais de Canápolis/BA, 
+      <i class="fas fa-globe-americas"></i> Brasil e 
+      <i class="fas fa-globe"></i> Mundo!
+    </p>
+  </div>
+
+  <div class="news-container">
+    <h2 class="section-title">Últimas Notícias</h2>
+    
+    <div class="news-grid" id="news-grid">
+      <!-- As notícias serão carregadas automaticamente aqui via JavaScript -->
+    </div>
+  </div>
+
+  <div class="footer-credits">
+    <h3>Canápolis Notícias</h3>
+    <p>Sua fonte confiável de informações em primeira mão.<br>
+    Acompanhe tudo o que acontece na nossa cidade e região.</p>
+    
+    <div class="social-links">
+      <a href="https://instagram.com/canapolisnews" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="mailto:canapolisnews@gmail.com?subject=Envio de Notícia" aria-label="E-mail">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+    
+    <p class="cta">Não perca nenhuma atualização: <strong>siga-nos!</strong></p>
+    
+    <div class="copyright">
+      <p>&copy; 2025 Canápolis Notícias. Todos os direitos reservados.</p>
+      <a href="privacidade.html" style="color: #6b9742; text-decoration: underline;">Política de Privacidade</a>
+    </div>
+  </div>
+
+   <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        ↑
+    </button>
+
+    <script>
+        // JavaScript para mostrar/ocultar o botão e a função de voltar ao topo
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopButton = document.getElementById('backToTop');
+            
+            // Mostrar ou ocultar o botão baseado na posição de rolagem
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+            
+            // Voltar ao topo quando clicar no botão
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+    <script>
+        // ================== SISTEMA DE GERENCIAMENTO DE NOTÍCIAS ==================
+        // Array principal onde você adiciona todas as notícias
+        const noticias = [
+           {
+            title: "Cachorra é encontrada gravemente ferida em via pública de Canápolis e caso gera revolta",
+            image: "Img/CachorroIlustração.webp",
+            date: "2025-07-18T10:00:00", // FORMATO ISO: YYYY-MM-DDTHH:MM:SS
+            subtitle: "Animal apresentava sinais de violência e possível cegueira; moradores relatam histórico de maus-tratos na região",
+            description: "Uma moradora de Canápolis se deparou com uma cena chocante ao caminhar por uma rua conhecida por ser ponto de alimentação de cães em situação de rua: uma cachorra estava caída, com o rosto machucado e sinais evidentes de violência.",
+            link: "Noticias/Cachorrafoiencontradaferida.html",
+          },
+        
+          {
+            title: "Prefeitura de Canápolis/BA anuncia cancelamento da festa de aniversário da cidade",
+            image: "Img/Notadeesclarecimentoprefdecanapolis.webp",
+            date: "2025-07-14T10:00:00", // FORMATO ISO: YYYY-MM-DDTHH:MM:SS
+            subtitle: "O cancelamento foi por conta da situação financeira atual do município",
+            description: "A Prefeitura de Canápolis/BA anunciou, dia 14 de julho, em seu perfil oficial no Instagram (@prefeituradecanapolis_ba), que não acontecerá o grande evento de aniversário da cidade por motivos financeiros.",
+            link: "Noticias/Festadeaniversariodecanapoliscancelada.html",
+          },
+          
+        ];
+
+        // ================== SISTEMA DE HORÁRIO RELATIVO ==================
+        // Função para calcular o tempo relativo
+        function timeAgo(dateString) {
+            const now = new Date();
+            const newsDate = new Date(dateString);
+            const diffInSeconds = Math.floor((now - newsDate) / 1000);
+            
+            // Definir intervalos de tempo
+            const intervals = {
+                ano: 31536000,
+                mês: 2592000,
+                semana: 604800,
+                dia: 86400,
+                hora: 3600,
+                minuto: 60
+            };
+            
+            // Calcular o tempo decorrido
+            if (diffInSeconds < 60) {
+                return 'Agora mesmo';
+            }
+            
+            for (const [unit, seconds] of Object.entries(intervals)) {
+                const count = Math.floor(diffInSeconds / seconds);
+                if (count >= 1) {
+                    return `Há ${count} ${unit}${count > 1 ? 's' : ''}`;
+                }
+            }
+            
+            return 'Há algum tempo';
+        }
+
+        // ================== FUNÇÃO PARA EXIBIR NOTÍCIAS ==================
+        function exibirNoticias() {
+          const container = document.getElementById('news-grid');
+          if (!container) return;
+          
+          let html = '';
+          
+          noticias.forEach(noticia => {
+            const dataFormatada = noticia.date.split('T')[0].split('-').reverse().join('/');
+            const tempoRelativo = timeAgo(noticia.date);
+            
+            // Determinar classe CSS baseada no tempo
+            const newsDate = new Date(noticia.date);
+            const hoursAgo = (new Date() - newsDate) / (1000 * 60 * 60);
+            let timeClass = 'older';
+            if (hoursAgo < 1) timeClass = 'recent';
+            else if (hoursAgo < 24) timeClass = 'today';
+            
+            html += `
+            <div class="news-card">
+              <img src="${noticia.image}" alt="${noticia.title}" class="news-image" onerror="this.src='https://placehold.co/600x400/6b9742/white?text=Imagem+Indisponível'">
+              <div class="news-content">
+                <span class="news-date">
+                  <i class="far fa-calendar-alt"></i> ${dataFormatada}
+                  <span class="news-time-ago ${timeClass}">${tempoRelativo}</span>
+                </span>
+                <h3 class="news-title">${noticia.title}</h3>
+                ${noticia.subtitle ? `<p class="news-subtitle">${noticia.subtitle}</p>` : ''}
+                <p class="news-description">${noticia.description}</p>
+                ${noticia.source ? `<span class="news-source">Fonte: ${noticia.source}</span>` : ''}
+                <a href="${noticia.link || '#'}" class="read-more">Ler notícia completa</a>
+              </div>
+            </div>`;
+          });
+          
+          container.innerHTML = html;
+        }
+
+        // ================== INICIALIZAÇÃO ==================
+        document.addEventListener('DOMContentLoaded', function() {
+          // Exibir notícias
+          exibirNoticias();
+          
+          // Atualizar ano do copyright
+          const copyrightElement = document.querySelector('.copyright p');
+          if (copyrightElement) {
+            copyrightElement.innerHTML = `&copy; ${new Date().getFullYear()} Canápolis Notícias. Todos os direitos reservados.`;
+          }
+        });
+    </script>
+</body>
+</html>

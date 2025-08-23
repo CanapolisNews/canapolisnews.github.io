@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4558696530170455"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícia Completa - Canápolis News</title>
+    <meta name="description" content="Prefeitura de Canápolis/BA anuncia o cancelamento da festa de aniversário da cidade por motivos financeiros.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f9f9f9; color: #333; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .news-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #eaeaea; }
+        .news-date { color: #6b9742; font-size: 1rem; margin-bottom: 10px; display: block; }
+        .news-title { font-size: 2.2rem; margin-bottom: 15px; color: #333; line-height: 1.3; }
+        .news-subtitle { font-size: 1.3rem; color: #666; margin-bottom: 20px; font-weight: 400; line-height: 1.5; }
+        .news-meta { display: flex; justify-content: center; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
+        .meta-item { display: flex; align-items: center; gap: 8px; color: #777; }
+        .main-content { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); }
+        .news-image { width: 100%; border-radius: 8px; margin-bottom: 25px; }
+        .news-text { font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; }
+        .news-text p { margin-bottom: 20px; }
+        .highlight { background-color: rgba(107, 151, 66, 0.1); border-left: 4px solid #6b9742; padding: 20px; margin: 30px 0; font-style: italic; }
+        .share-section { margin: 30px 0; padding: 20px; background: #f0f7e9; border-radius: 8px; text-align: center; }
+        .share-title { margin-bottom: 15px; color: #333; }
+        .share-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .share-button { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: white; border: 1px solid #ddd; border-radius: 5px; text-decoration: none; color: #555; transition: all 0.3s; }
+        .share-button:hover { transform: translateY(-2px); box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); }
+        .facebook { color: #3b5998; } .twitter { color: #1da1f2; } .whatsapp { color: #25d366; } .instagram { color: #e1306c; }
+        .back-button { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 30px; padding: 10px 20px; background-color: #f0f0f0; color: #333; text-decoration: none; border-radius: 5px; transition: background-color 0.3s; }
+        .back-button:hover { background-color: #e0e0e0; }
+        .footer-credits { text-align: center; padding: 25px; background-color: #f8f9fa; border-top: 2px solid #e9ecef; margin-top: 40px; }
+        .footer-credits h3 { margin-bottom: 10px; color: #6b9742; font-size: 1.5rem; }
+        .footer-credits p { margin-bottom: 15px; line-height: 1.5; }
+        .social-links { margin: 15px 0; }
+        .social-links a { display: inline-block; margin: 0 10px; width: 40px; height: 40px; background-color: #6b9742; color: white; border-radius: 50%; line-height: 40px; text-decoration: none; transition: background 0.3s; }
+        .social-links a:hover { background-color: #5a7e37; }
+        .cta { font-size: 0.95rem; margin-top: 15px; color: #555; }
+        .copyright { margin-top: 20px; padding-top: 15px; border-top: 1px solid #ddd; font-size: 0.9rem; color: #666; }
+        
+        /* ESTILOS PARA HORÁRIO RELATIVO */
+        .news-time-ago {
+            display: inline-block;
+            background: rgba(107, 151, 66, 0.15);
+            color: #6b9742;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 10px;
+            border: 1px solid rgba(107, 151, 66, 0.3);
+        }
+
+        .news-time-ago::before {
+            content: '⏰ ';
+            margin-right: 4px;
+        }
+
+        /* Diferentes cores para diferentes tempos */
+        .news-time-ago.recent { /* Menos de 1h */
+            background: rgba(76, 175, 80, 0.15);
+            color: #4caf50;
+            border-color: rgba(76, 175, 80, 0.3);
+        }
+
+        .news-time-ago.today { /* Hoje */
+            background: rgba(107, 151, 66, 0.15);
+            color: #6b9742;
+            border-color: rgba(107, 151, 66, 0.3);
+        }
+
+        .news-time-ago.older { /* Mais de 1 dia */
+            background: rgba(158, 158, 158, 0.15);
+            color: #757575;
+            border-color: rgba(158, 158, 158, 0.3);
+        }
+
+        /* CONTAINER PRINCIPAL DA FONTE */
+        .news-source-container { 
+            background: linear-gradient(135deg, #f8fbf4 0%, #eef7e8 100%); 
+            border-radius: 12px; 
+            padding: 25px; 
+            margin: 35px 0; 
+            border: 2px solid #6b9742;
+            box-shadow: 0 5px 20px rgba(107, 151, 66, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* EFEITO DE CANTO DECORATIVO */
+        .news-source-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 30px;
+            height: 30px;
+            background: #6b9742;
+            border-bottom-left-radius: 15px;
+            box-shadow: -2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* TÍTULO DA FONTE */
+        .source-title { 
+            color: #6b9742; 
+            font-size: 1.3rem; 
+            font-weight: bold; 
+            margin-bottom: 15px; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .source-title i { 
+            font-size: 1.5rem; 
+            background: #6b9742;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 8px rgba(107, 151, 66, 0.3);
+        }
+
+        /* CONTEÚDO DA FONTE */
+        .source-content { 
+            font-size: 1.1rem; 
+            line-height: 1.7; 
+            color: #444; 
+            padding-left: 15px;
+            border-left: 3px solid #6b9742;
+            margin-left: 20px;
+        }
+
+        /* LINK DA FONTE */
+        .source-link { 
+            color: #6b9742; 
+            text-decoration: none; 
+            font-weight: 600; 
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            padding: 8px 16px;
+            background: rgba(107, 151, 66, 0.1);
+            border-radius: 6px;
+            border: 1px solid rgba(107, 151, 66, 0.3);
+        }
+
+        .source-link:hover { 
+            color: white; 
+            background: #6b9742;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(107, 151, 66, 0.3);
+            text-decoration: none;
+        }
+
+        /* BADGE DE CREDIBILIDADE */
+        .source-badge {
+            display: inline-block;
+            background: #6b9742;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 15px;
+            vertical-align: middle;
+        }
+
+        /* ANIMAÇÃO SUAVE */
+        @keyframes pulse {
+            0% { box-shadow: 0 5px 20px rgba(107, 151, 66, 0.15); }
+            50% { box-shadow: 0 5px 25px rgba(107, 151, 66, 0.25); }
+            100% { box-shadow: 0 5px 20px rgba(107, 151, 66, 0.15); }
+        }
+
+        .news-source-container {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) { 
+            .news-title { font-size: 1.8rem; } 
+            .news-subtitle { font-size: 1.1rem; } 
+            .news-meta { flex-direction: column; gap: 10px; } 
+            .share-buttons { gap: 10px; }
+            .share-button { padding: 8px 15px; font-size: 0.9rem; }
+            
+            .news-source-container {
+                padding: 20px;
+                margin: 25px 0;
+            }
+            
+            .source-title {
+                font-size: 1.1rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+            
+            .source-title i {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+            }
+            
+            .source-content {
+                padding-left: 10px;
+                margin-left: 10px;
+                font-size: 1rem;
+            }
+            
+            .source-link {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+            
+            .news-time-ago {
+                font-size: 0.8rem;
+                padding: 4px 10px;
+                margin-left: 5px;
+            }
+        }
+
+         /* ========== BOTÕES DE NAVEGAÇÃO ========== */
+.news-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+    padding-top: 30px;
+    border-top: 2px solid #eaeaea;
+}
+
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 25px;
+    background-color: #6b9742;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.nav-button:hover {
+    background-color: #5a7e37;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(107, 151, 66, 0.3);
+}
+
+.nav-button.prev {
+    background-color: white;
+    color: #6b9742;
+    border: 2px solid #6b9742;
+}
+
+.nav-button.prev:hover {
+    background-color: #6b9742;
+    color: white;
+}
+
+.nav-button.next {
+    background-color: #6b9742;
+    color: white;
+}
+
+.nav-button i {
+    font-size: 1.1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .news-navigation {
+        flex-direction: column;
+        gap: 15px;
+        margin: 30px 0;
+    }
+    
+    .nav-button {
+        justify-content: center;
+        padding: 12px 20px;
+    }
+    
+    .nav-button.prev {
+        order: 2; /* Coloca o botão anterior embaixo no mobile */
+    }
+    
+    .nav-button.next {
+        order: 1; /* Coloca o botão próximo em cima no mobile */
+    }
+}
+
+/* ========== BOTÃO VOLTAR AO TOPO ========== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(107, 151, 66, 0.85); /* #6b9742 com transparência */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(107, 151, 66, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background-color: rgba(107, 151, 66, 1); /* Verde sólido no hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(107, 151, 66, 0.4);
+        }
+
+        .back-to-top:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 10px rgba(107, 151, 66, 0.3);
+        }
+
+        /* Tooltip (notificação) */
+        .back-to-top::before {
+            content: 'Clique e volte para o topo';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            background-color: #333;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .back-to-top::after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 2px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top:hover::before,
+        .back-to-top:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .back-to-top {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.3rem;
+            }
+            
+            .back-to-top::before {
+                font-size: 0.7rem;
+                padding: 6px 10px;
+                white-space: normal;
+                width: 120px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 15px;
+                right: 15px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Conteúdo de exemplo para demonstrar a rolagem */
+        .content {
+            height: 200vh;
+            padding: 50px;
+            background: linear-gradient(to bottom, #f9f9f9, #eaeaea);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Voltar para pagina inicial
+        </a>
+        
+        <header class="news-header">
+            <span class="news-date" data-date="2025-07-14T10:00:00">
+                <i class="far fa-calendar-alt"></i> 14 de julho, 2025
+            </span>
+            <h1 class="news-title">Prefeitura de Canápolis/BA anuncia cancelamento da festa de aniversário da cidade</h1>
+            <p class="news-subtitle">O cancelamento foi por conta da situação financeira atual do município</p>
+        </header>
+        
+        <div class="main-content">
+            <img src="../Img/Notadeesclarecimentoprefdecanapolis.webp" alt="Nota oficial de esclarecimento da Prefeitura de Canápolis sobre o cancelamento da festa de aniversário" class="news-image">
+            <div class="news-text">
+                <p>A Prefeitura Municipal de Canápolis – BA publicou no dia 14 de julho uma nota oficial informando que não realizará a tradicional festa de aniversário da cidade, comemorada no dia 19 de julho.</p>
+                <p>A decisão foi tomada com base na atual situação financeira do município. Segundo a nota, o foco da gestão é priorizar o equilíbrio das contas públicas e garantir a manutenção dos serviços essenciais à população.</p>
+                <div class="highlight">Ainda segundo o comunicado, a Prefeitura reconhece a importância da celebração para os moradores, mas reforça que a responsabilidade com o dinheiro público precisa estar em primeiro lugar.</div>
+                <p>O anúncio foi feito através das redes sociais oficiais da prefeitura e gerou diversas reações da população, que entendem a situação financeira do município, mais lamentam o cancelamento da tradicional festividade.</p>
+                
+                <!-- Destaque da Fonte Corrigido -->
+                <div class="news-source-container">
+                    <div class="source-title">
+                        <i class="fab fa-instagram"></i>
+                        Fonte da Notícia
+                        <span class="source-badge">Oficial</span>
+                    </div>
+                    <div class="source-content">
+                        Esta informação foi divulgada oficialmente através do perfil 
+                        <strong>@prefeituradecanapolis_ba</strong> no Instagram.
+                        <a href="https://instagram.com/prefeituradecanapolis_ba" target="_blank" class="source-link">
+                            <i class="fab fa-instagram"></i>
+                            Ver publicação original
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="share-section">
+                <h3 class="share-title">Compartilhe esta notícia</h3>
+                <div class="share-buttons">
+                    <a href="#" class="share-button facebook"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="#" class="share-button twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#" class="share-button whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="#" class="share-button instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Botões de Navegação -->
+<div class="news-navigation">
+    <a href="" class="nav-button prev">
+        <i class="fas fa-arrow-left"></i> Notícia Anterior
+    </a>
+    <a href="" class="nav-button next">
+        Próxima Notícia <i class="fas fa-arrow-right"></i>
+    </a>
+</div>
+
+    <div class="footer-credits">
+        <h3>Canápolis Notícias</h3>
+        <p>Sua fonte confiável de informações em primeira mão.<br>
+        Acompanhe tudo o que acontece na nossa cidade e região.</p>
+        
+        <div class="social-links">
+            <a href="https://instagram.com/canapolisnews" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:canapolisnews@gmail.com?subject=Envio de Notícia" aria-label="E-mail">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+
+        
+        <p class="cta">Não perca nenhuma atualização: <strong>siga-nos!</strong></p>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Canápolis Notícias. Todos os direitos reservados.</p>
+              <a href="../privacidade.html" style="color: #6b9742; text-decoration: underline;">Política de Privacidade</a>
+        </div>
+    </div>
+    
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão Voltar ao Topo</title>
+    <style>
+        /* ========== BOTÃO VOLTAR AO TOPO ========== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(107, 151, 66, 0.85); /* #6b9742 com transparência */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(107, 151, 66, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background-color: rgba(107, 151, 66, 1); /* Verde sólido no hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(107, 151, 66, 0.4);
+        }
+
+        .back-to-top:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 10px rgba(107, 151, 66, 0.3);
+        }
+
+        /* Tooltip (notificação) */
+        .back-to-top::before {
+            content: 'Clique e volte para o topo';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            background-color: #333;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .back-to-top::after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 2px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top:hover::before,
+        .back-to-top:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .back-to-top {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.3rem;
+            }
+            
+            .back-to-top::before {
+                font-size: 0.7rem;
+                padding: 6px 10px;
+                white-space: normal;
+                width: 120px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 15px;
+                right: 15px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Conteúdo de exemplo para demonstrar a rolagem */
+        .content {
+            height: 200vh;
+            padding: 50px;
+            background: linear-gradient(to bottom, #f9f9f9, #eaeaea);
+            text-align: center;
+        }
+    </style>
+</head>
+
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        ↑
+    </button>
+
+    <script>
+        // JavaScript para mostrar/ocultar o botão e a função de voltar ao topo
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopButton = document.getElementById('backToTop');
+            
+            // Mostrar ou ocultar o botão baseado na posição de rolagem
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+            
+            // Voltar ao topo quando clicar no botão
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+    <script>
+        // ================== SISTEMA DE HORÁRIO RELATIVO ==================
+        // Função para calcular o tempo relativo
+        function timeAgo(dateString) {
+            const now = new Date();
+            const newsDate = new Date(dateString);
+            const diffInSeconds = Math.floor((now - newsDate) / 1000);
+            
+            // Definir intervalos de tempo
+            const intervals = {
+                ano: 31536000,
+                mês: 2592000,
+                semana: 604800,
+                dia: 86400,
+                hora: 3600,
+                minuto: 60
+            };
+            
+            // Calcular o tempo decorrido
+            if (diffInSeconds < 60) {
+                return 'Agora mesmo';
+            }
+            
+            for (const [unit, seconds] of Object.entries(intervals)) {
+                const count = Math.floor(diffInSeconds / seconds);
+                if (count >= 1) {
+                    return `Há ${count} ${unit}${count > 1 ? 's' : ''}`;
+                }
+            }
+            
+            return 'Há algum tempo';
+        }
+
+        // Função para atualizar o horário relativo
+        function updateTimeAgo() {
+            const newsDateElement = document.querySelector('.news-date');
+            if (newsDateElement) {
+                const dateString = newsDateElement.getAttribute('data-date');
+                let timeAgoElement = newsDateElement.querySelector('.news-time-ago');
+                
+                if (!timeAgoElement) {
+                    timeAgoElement = document.createElement('span');
+                    timeAgoElement.className = 'news-time-ago';
+                    newsDateElement.appendChild(timeAgoElement);
+                }
+                
+                timeAgoElement.textContent = timeAgo(dateString);
+                
+                // Adicionar classe baseada no tempo
+                const newsDate = new Date(dateString);
+                const hoursAgo = (new Date() - newsDate) / (1000 * 60 * 60);
+                
+                timeAgoElement.classList.remove('recent', 'today', 'older');
+                if (hoursAgo < 1) {
+                    timeAgoElement.classList.add('recent');
+                } else if (hoursAgo < 24) {
+                    timeAgoElement.classList.add('today');
+                } else {
+                    timeAgoElement.classList.add('older');
+                }
+            }
+        }
+
+        // ================== COMPARTILHAMENTO ==================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Atualizar horário relativo
+            updateTimeAgo();
+            
+            // Atualizar a cada minuto
+            setInterval(updateTimeAgo, 60000);
+
+            // Configurar botões de compartilhamento
+            const pageUrl = encodeURIComponent(window.location.href);
+            const pageTitle = encodeURIComponent('Prefeitura de Canápolis/BA anuncia cancelamento da festa de aniversário da cidade');
+            
+            // Facebook
+            document.querySelector('.share-button.facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+            
+            // Twitter
+            document.querySelector('.share-button.twitter').href = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+            
+            // WhatsApp
+            document.querySelector('.share-button.whatsapp').href = `https://api.whatsapp.com/send?text=${pageTitle} ${pageUrl}`;
+            
+            // Instagram
+            document.querySelector('.share-button.instagram').addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Para compartilhar no Instagram, copie o link da notícia e compartilhe diretamente no app.');
+                navigator.clipboard.writeText(decodeURIComponent(pageUrl));
+            });
+            
+            // Abrir links de compartilhamento em nova janela
+            document.querySelectorAll('.share-button:not(.instagram)').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.open(this.href, 'Compartilhar', 'width=600,height=400');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
