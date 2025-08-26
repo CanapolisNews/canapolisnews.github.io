@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+<head><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XWHTVNHSMG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XWHTVNHSMG');
+</script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4558696530170455"
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
@@ -280,14 +288,15 @@
             text-decoration: underline;
         }
 
-        /* ========== BOTÕES DE NAVEGAÇÃO ========== */
         .news-navigation {
-            display: flex;
-            justify-content: space-between;
-            margin: 40px 0;
-            padding-top: 30px;
-            border-top: 2px solid #eaeaea;
-        }
+    display: flex;
+    flex-direction: column; /* um embaixo do outro */
+    gap: 15px; /* espaço entre eles */
+    margin: 40px 0;
+    padding-top: 30px;
+    border-top: 2px solid #eaeaea;
+    align-items: center; /* opcional: alinha à esquerda */
+}
 
         .nav-button {
             display: inline-flex;
