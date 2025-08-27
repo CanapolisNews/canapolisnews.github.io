@@ -14,7 +14,7 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canápolis/BA recebe nova viatura da Policia militar - Noticia completa</title>
+    <title>Canápolis é contemplada com 20 novas casas do programa "Minha Casa Minha Vida" - Notícia completa</title>
     <meta name="description" content="Prefeitura de Canápolis/BA anuncia o cancelamento da festa de aniversário da cidade por motivos financeiros.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -521,6 +521,145 @@
     margin-bottom: 25px; /* mantém espaçamento antes do texto */
     font-style: italic;
 }
+
+
+     /* ESTILOS ESPECÍFICOS PARA A SEÇÃO DE NOTÍCIAS RELACIONADAS */
+        .related-news-container {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: #6b9742;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #6b9742;
+            display: inline-block;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .news-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .news-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .news-card-content {
+            padding: 20px;
+        }
+        
+        .news-card-tag {
+            display: inline-block;
+            background-color: #003f67;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        
+        .news-card-title {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #003f67;
+            line-height: 1.4;
+        }
+        
+        .news-card-excerpt {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .read-more {
+            display: inline-block;
+            color: #6b9742;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        .read-more:hover {
+            color: #6b9742;
+            text-decoration: underline;
+        }
+        
+        .more-from {
+            margin-top: 50px;
+        }
+        
+        .more-list {
+            list-style: none;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .more-list li {
+            padding: 15px 0;
+            border-bottom: 1.5px solid #eee;
+        }
+        
+        .more-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .more-list a {
+            color: #6b9742;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+            display: block;
+            padding: 5px 0;
+        }
+        
+        .more-list a:hover {
+            color:#000000;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .news-card img {
+                height: 160px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -600,6 +739,21 @@
             <a href="Motociclistasofreacidenteemsantanaba.html" class="nav-button next">
                 Próxima Notícia <i class="fas fa-arrow-right"></i>
             </a>
+        </div>
+    </div>
+
+    <!-- SEÇÃO DE NOTÍCIAS RELACIONADAS -->
+    <div class="related-news-container">
+        <div class="more-from">
+            <h2 class="section-title">Mais Notícias</h2>
+            <ul class="more-list">
+                <li><a href="Cavalomutilado.html">Cavalo é encontrado sem as quatro patas na zona rural de Bananal; caso é investigado pela polícia</a></li>
+                <li><a href="Canapolisrecebe20casasdoprogramaminhacaminhavida.html">Canápolis avança na oferta de moradia digna com 20 novas casas populares</a></li>
+                <li><a href="Motociclistasofreacidenteemsantanaba.html">Acidente envolvendo motociclista é registrado em Santana/BA</a></li>
+                <li><a href="Canapolisrecebenovaviaturapolicial.html">Canápolis recebe nova viatura para a Polícia Militar</a></li>
+                <li><a href="Cachorraeencontradagravementeferida.html">Cachorra é encontrada gravemente ferida em via pública de Canápolis</a></li>
+                 <li><a href="Prefeituradecanapolisanunciacancelamentodafestadeaniversariodacidade.html">Prefeitura de Canápolis/BA anuncia cancelamento da festa de aniversário da cidade</a></li>
+            </ul>
         </div>
     </div>
 
