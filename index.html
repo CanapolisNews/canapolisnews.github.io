@@ -2,14 +2,13 @@
 <html lang="pt-br">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XWHTVNHSMG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-XWHTVNHSMG');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XWHTVNHSMG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XWHTVNHSMG');
+    </script>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4558696530170455" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -260,6 +259,24 @@
             background-color: #5a7e37;
         }
 
+        /* ========== ANÚNCIO DO ADSENSE ========== */
+        .adsense-container {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .adsense-label {
+            display: block;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
         /* ========== RODAPÉ ========== */
         footer {
             background-color: #6b9742;
@@ -382,7 +399,6 @@
                 padding: 15px;
             }
         }
-        
     </style>
 </head>
 <body>
@@ -411,21 +427,33 @@
             <p class="site-subtitle">Sua fonte confiável de notícias locais e nacionais</p>
         </header>
 
+        <!-- Primeiro anúncio AdSense -->
+        <div class="adsense-container">
+            <span class="adsense-label">Publicidade</span>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4558696530170455" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-format="fluid"
+                 data-ad-layout-key="-e5+6y+7d-ji+bp"
+                 data-ad-client="ca-pub-4558696530170455"
+                 data-ad-slot="6375460138"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
         <!-- Notícia em destaque -->
-<article class="featured-news">
-    <div class="featured-content">
-        <span class="news-category">Saúde</span>
-        <h2 class="featured-title">Prefeitura entrega reforma no Posto de Saúde em Canápolis</h2>
-        <span class="news-date">23 de Agosto de 2025</span>
-        <p class="featured-description">
-            A Prefeitura de Canápolis entregou a reforma completa do Posto de Saúde da Família (PSF), garantindo mais conforto para pacientes e profissionais da área. Confira o vídeo oficial do evento:
-        </p>
-
-        <!-- Botão/link correto -->
-        <a href="Noticias/Prefeituradecanapolisreformapsf2.html" class="read-more">Assistir vídeo (Clique aqui)</a>
-    </div>
-</article>
-
+        <article class="featured-news">
+            <div class="featured-content">
+                <span class="news-category">Saúde</span>
+                <h2 class="featured-title">Prefeitura entrega reforma no Posto de Saúde em Canápolis</h2>
+                <span class="news-date">23 de Agosto de 2025</span>
+                <p class="featured-description">
+                    A Prefeitura de Canápolis entregou a reforma completa do Posto de Saúde da Família (PSF), garantindo mais conforto para pacientes e profissionais da área. Confira o vídeo oficial do evento:
+                </p>
+                <a href="Noticias/Prefeituradecanapolisreformapsf2.html" class="read-more">Assistir vídeo (Clique aqui)</a>
+            </div>
+        </article>
 
         <!-- Notícia em destaque -->
         <article class="featured-news">
@@ -470,7 +498,6 @@
             <a href="contato.html" class="ad-button">Saiba mais</a>
         </div>
 
-        
 
              <article class="news-item">
                 <a href="Noticias/Canapolisrecebenovaviaturapolicial.html" class="news-item-link">
